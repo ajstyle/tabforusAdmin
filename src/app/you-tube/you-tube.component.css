@@ -6,13 +6,6 @@
     position: relative;
 }
 
-.fab {
-    position: absolute !important;
-    z-index: 999;
-    bottom: 40px;
-    right: 40px;
-}
-
 .example-card {
     display: block;
     width: 600px;
@@ -34,9 +27,4 @@
 
 h3 {
     text-align: center
-}
-
-.resizedTextbox {
-    width: 100px;
-    height: 20px
 }
