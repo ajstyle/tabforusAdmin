@@ -15,7 +15,7 @@ export class AddChannelComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       ChannelName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      ChannelId: new FormControl('', [Validators.required, Validators.minLength(24)])
+      ChannelId: new FormControl('', [Validators.required, Validators.minLength(24) , Validators.maxLength(24) ])
     })
   }
   onCancel() {
@@ -37,7 +37,8 @@ export class AddChannelComponent implements OnInit {
   }
   getChannelIdErrorMessage() {
     return this.form.get('ChannelId').hasError('required') ? 'Please Enter Channel Name' :
-      this.form.get('ChannelId').hasError('minlength') ? 'Not a vaild Channel ID' : ''
+      this.form.get('ChannelId').hasError('minlength') ? 'Not a vaild Channel ID' :
+        this.form.get('ChannelId').hasError('maxlength') ? 'Not a vaild Channel ID' : ''
   }
 
 }

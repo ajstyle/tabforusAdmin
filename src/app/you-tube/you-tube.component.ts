@@ -31,11 +31,13 @@ export class YouTubeComponent implements OnInit {
   /* ----------------------- Validation of Update Field ---------------------*/
   channelIdControl = new FormControl('', [
     Validators.required,
-    Validators.minLength(24)
+    Validators.minLength(24),
+    Validators.maxLength(24),
   ]);
   ChannelNameControl = new FormControl('', [
     Validators.required,
     Validators.minLength(3)
+
   ]);
   matcher = new MyErrorStateMatcher();
 
