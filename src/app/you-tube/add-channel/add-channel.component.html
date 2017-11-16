@@ -1,0 +1,22 @@
+<div class="dialog">
+    <form [formGroup]="form">
+        <div class="example-container">
+
+            <mat-form-field>
+                <input matInput placeholder="Channel Name" formControlName="ChannelName">
+                <mat-error>{{getChannelErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+
+                <input matInput placeholder="Channel Id" formControlName="ChannelId">
+                <mat-error>{{getChannelIdErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+        </div>
+
+
+    </form>
+    <button mat-raised-button [disabled]="form.invalid" (click)=save() color="primary">Add</button>
+    <button mat-raised-button (click)="onCancel()" color="primary">Cancel</button>
+
+</div>
