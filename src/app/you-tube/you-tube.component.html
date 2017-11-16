@@ -16,23 +16,19 @@
             <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
+            <!-- Serial No. -->
+
             <ng-container matColumnDef="S.no.">
                 <mat-header-cell *matHeaderCellDef> S.No. </mat-header-cell>
                 <mat-cell *matCellDef="let element let i=index">{{i+1}} </mat-cell>
             </ng-container>
 
-            <!-- Position Column -->
+            <!-- Channel Name Column -->
 
             <ng-container matColumnDef="channelName">
                 <mat-header-cell *matHeaderCellDef> Channel Name </mat-header-cell>
                 <mat-cell *matCellDef="let element">
-
-
                     <form class="example-form">
-
-
-
-
                         <mat-form-field class="example-full-width">
                             <input matInput [formControl]="ChannelNameControl" [(ngModel)]="element.ChannelName" [errorStateMatcher]="matcher">
 
@@ -43,13 +39,11 @@
                                 Channel Name is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
-
                     </form>
-
-
                 </mat-cell>
             </ng-container>
 
+            <!-- Channel Id Column -->
 
             <ng-container matColumnDef="channelId">
                 <mat-header-cell *matHeaderCellDef> Channel Id </mat-header-cell>
@@ -66,9 +60,9 @@
                         </mat-form-field>
                     </form>
                 </mat-cell>
-
             </ng-container>
 
+            <!-- Action Column -->
             <ng-container matColumnDef="Action">
                 <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
                 <mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" [disabled]="channelIdControl.invalid&&hannelNameControl.invalid" (click)="update(element._id , element.ChannelName ,element.ChannelId  )">Update</button>
@@ -77,15 +71,6 @@
 
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;">{{row}}</mat-row>
-
-
-
-
-
-
-
-
-
 
         </mat-table>
     </mat-card>
