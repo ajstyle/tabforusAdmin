@@ -31,7 +31,6 @@
                     <form class="example-form">
                         <mat-form-field class="example-full-width">
                             <input matInput [formControl]="ChannelNameControl" [(ngModel)]="element.ChannelName" [errorStateMatcher]="matcher">
-
                             <mat-error *ngIf="ChannelNameControl.hasError('minlength') && !ChannelNameControl.hasError('required')">
                                 Channel Name too short
                             </mat-error>
@@ -50,9 +49,9 @@
                 <mat-cell *matCellDef="let element">
                     <form class="example-form">
                         <mat-form-field class="example-full-width">
-                            <input matInput id="channelId" [formControl]="channelIdControl" [(ngModel)]="element.ChannelId" [errorStateMatcher]="matcher">
+                            <input matInput id="channelId" [formControl]="channelIdControl" [(ngModel)]="element.ChannelId" [errorStateMatcher]="matcher" />
                             <mat-error *ngIf="channelIdControl.hasError('minlength') && channelIdControl.hasError('maxlength') && !channelIdControl.hasError('required')">
-                                Please enter a valid Channel Id
+                                Please enter a <strong>valid Channel Id</strong>
                             </mat-error>
                             <mat-error *ngIf="channelIdControl.hasError('required')">
                                 Channel Id is <strong>required</strong>
@@ -65,6 +64,7 @@
             <!-- Action Column -->
             <ng-container matColumnDef="Action">
                 <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+
                 <mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" [disabled]="channelIdControl.invalid || ChannelNameControl.invalid" (click)="update(element._id , element.ChannelName ,element.ChannelId  )">Update</button>
                     <button mat-raised-button color="warn" (click)="delete(element._id)">Delete</button> </mat-cell>
             </ng-container>
